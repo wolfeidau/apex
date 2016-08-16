@@ -12,7 +12,7 @@ import (
 // example output.
 const example = `
     Preview using dry run
-    $ apex ansible apex-playbook.yml --dry-run
+    $ apex ansible apex-playbook.yml --check
 
     Apply changes
     $ apex ansible apex-playbook.yml`
@@ -36,7 +36,7 @@ func run(c *cobra.Command, args []string) error {
 
 	err := root.Project.LoadFunctions()
 
-	// Hack to prevent initial `apex infra apply` from failing,
+	// Hack to prevent initial `apex ansible` from failing,
 	// as we load functions to expose their ARNs.
 	if err != nil {
 		if !strings.Contains(err.Error(), "Role: zero value") {

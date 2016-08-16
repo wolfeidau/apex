@@ -72,7 +72,7 @@ func (p *Proxy) functionVars() (args []string) {
 
 // ansibleArgs returns the ansible args to run locally
 func (p *Proxy) ansibleArgs() (args []string) {
-	return append(args, []string{"-i", "localhost,", "-c", "local", "apex-playbook.yml"}...)
+	return append(args, []string{"-i", "localhost,", "-c", "local"}...)
 }
 
 // Output fetches output variable `name` from ansible.
