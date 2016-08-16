@@ -12,10 +12,10 @@ import (
 	"github.com/apex/log"
 )
 
-// Dir in which Terraform configs are stored
+// Dir in which ansible configs are stored
 const Dir = "ansible"
 
-// Proxy is a wrapper around Terraform commands.
+// Proxy is a wrapper around ansible-playbook command.
 type Proxy struct {
 	Functions   []*function.Function
 	Environment string
@@ -23,7 +23,7 @@ type Proxy struct {
 	Role        string
 }
 
-// Run terraform command in infrastructure directory.
+// Run ansible command in ansible directory.
 func (p *Proxy) Run(args ...string) error {
 
 	args = append(args, p.functionVars()...)
